@@ -20,24 +20,17 @@ public class RegisterFragmentEvents implements View.OnClickListener {
     public void onClick(View v) {
 
            if (v.getId() == R.id.btnAceptarRegistrar) {
-               if (this.registerFragment.getRegisterFragmentListener() !=null) {
-                   this.registerFragment.getRegisterFragmentListener().onClickRegister();
+               if (this.registerFragment.registerFragmentListener !=null) {
+                   this.registerFragment.registerFragmentListener.onClickRegister();
                }
            } else if (v.getId() == R.id.btnCancelarRegistrar) {
-               if (this.registerFragment.getRegisterFragmentListener() !=null) {
-                   this.registerFragment.getRegisterFragmentListener().onClickVolver();
+               if (this.registerFragment.registerFragmentListener !=null) {
+                   this.registerFragment.registerFragmentListener.onClickVolver();
                }
            }
 
 
     }
 
-    public RegisterFragment getRegisterFragment() {
-        return registerFragment;
-    }
-
-    public void setRegisterFragment(RegisterFragment registerFragment) {
-        this.registerFragment = registerFragment;
-    }
 
 }

@@ -10,7 +10,7 @@ import com.fuente.oscar.mylibrary.fragments.RegisterFragmentListener;
  */
 
 
-public class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener {
+public class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener, FireBaseAdmin.FireBaseAdminListener {
     private MainActivity mainActivity;
 
     public MainActivityEvents(MainActivity mainActivity) {
@@ -20,31 +20,55 @@ public class MainActivityEvents implements LoginFragmentListener, RegisterFragme
 
     @Override
     public void onClickLogin() {
+        mainActivity.fireBaseAdmin.signIn(mainActivity.loginFragment.txtUser.getText().toString(),mainActivity.loginFragment.txtPass.getText().toString());
+
+    }
+
+    @Override
+    public void onClickRegisterLog() {
+        android.support.v4.app.FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+        transaction.hide(this.mainActivity.loginFragment);
+        transaction.show(this.mainActivity.registerFragment);
+        transaction.hide(this.mainActivity.inicioFragment);
+        transaction.commit();
 
     }
 
     @Override
     public void onClickRegister() {
-        android.support.v4.app.FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
-        transaction.hide(this.mainActivity.getLoginFragment());
-        transaction.show(this.mainActivity.getRegisterFragment());
-        transaction.commit();
-
+        mainActivity.fireBaseAdmin.loginWithEmailPass(mainActivity.registerFragment.txtEmail.getText().toString(),mainActivity.registerFragment.txtPass.getText().toString());
     }
 
     @Override
     public void onClickVolver() {
         android.support.v4.app.FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
-        transaction.hide(this.mainActivity.getRegisterFragment());
-        transaction.show(this.mainActivity.getLoginFragment());
+        transaction.hide(this.mainActivity.registerFragment);
+        transaction.show(this.mainActivity.loginFragment);
+        transaction.hide(this.mainActivity.inicioFragment);
         transaction.commit();
     }
 
-    public MainActivity getMainActivity() {
-        return mainActivity;
+
+    @Override
+    public void fireBaseAdminUserConnected(boolean blconnected) {
+        if(blconnected){
+            android.support.v4.app.FragmentTransaction transaction = mainActivity.getSupportFragmentManager().beginTransaction();
+            transaction.hide(this.mainActivity.loginFragment);
+            transaction.hide(this.mainActivity.registerFragment);
+            transaction.show(this.mainActivity.inicioFragment);
+            transaction.commit();
+        }
     }
 
-    public void setMainActivity(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    @Override
+    public void fireBaseAdminUserRegister(boolean blconnected) {
+        System.out.println("-----------------------------------"+ blconnected);
+        if (blconnected) {
+            android.support.v4.app.FragmentTransaction transition = this.mainActivity.getSupportFragmentManager().beginTransaction();
+            transition.hide(this.mainActivity.registerFragment);
+            transition.hide(this.mainActivity.loginFragment);
+            transition.show(this.mainActivity.inicioFragment);
+            transition.commit();
+        }
     }
 }

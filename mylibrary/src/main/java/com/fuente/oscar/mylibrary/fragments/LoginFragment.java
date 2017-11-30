@@ -17,9 +17,9 @@ import com.fuente.oscar.mylibrary.R;
 public class LoginFragment extends Fragment {
 
     private Button btnLogin,btnRegister;
-    private EditText txtUser,txtPass;
-    private  LoginFragmentEvents loginFragmentEvents;
-    private LoginFragmentListener loginFragmentListener;
+    public EditText txtUser,txtPass;
+    public  LoginFragmentEvents loginFragmentEvents;
+    public LoginFragmentListener loginFragmentListener;
 
 
     public LoginFragment() {
@@ -60,33 +60,6 @@ public class LoginFragment extends Fragment {
         this.btnRegister = btnRegister;
     }
 
-    public EditText getTxtUser() {
-        return txtUser;
-    }
-
-    public void setTxtUser(EditText txtUser) {
-        this.txtUser = txtUser;
-    }
-
-    public EditText getTxtPass() {
-        return txtPass;
-    }
-
-    public void setTxtPass(EditText txtPass) {
-        this.txtPass = txtPass;
-    }
-
-    public LoginFragmentEvents getLoginFragmentEvents() {
-        return loginFragmentEvents;
-    }
-
-    public void setLoginFragmentEvents(LoginFragmentEvents loginFragmentEvents) {
-        this.loginFragmentEvents = loginFragmentEvents;
-    }
-
-    public LoginFragmentListener getLoginFragmentListener() {
-        return loginFragmentListener;
-    }
 
     public void setLoginFragmentListener(LoginFragmentListener loginFragmentListener) {
         this.loginFragmentListener = loginFragmentListener;

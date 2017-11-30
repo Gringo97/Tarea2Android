@@ -6,5 +6,5 @@ package com.fuente.oscar.mylibrary.fragments;
 
 public interface LoginFragmentListener {
     public void onClickLogin();
-    public void onClickRegister();
+    public void onClickRegisterLog();
 }

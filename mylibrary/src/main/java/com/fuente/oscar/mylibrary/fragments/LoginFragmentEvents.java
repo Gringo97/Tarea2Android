@@ -1,6 +1,5 @@
 package com.fuente.oscar.mylibrary.fragments;
 
-import android.provider.Settings;
 import android.view.View;
 
 import com.fuente.oscar.mylibrary.R;
@@ -20,8 +19,12 @@ public class LoginFragmentEvents implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnRegister){
-            if(this.loginFragment.getLoginFragmentListener() != null){
-                this.loginFragment.getLoginFragmentListener().onClickRegister();
+            if(this.loginFragment.loginFragmentListener != null){
+                this.loginFragment.loginFragmentListener.onClickRegisterLog();
+            }
+        }else if(v.getId()== R.id.btnLogin) {
+            if (this.loginFragment.loginFragmentListener != null) {
+                this.loginFragment.loginFragmentListener.onClickLogin();
             }
         }
     }

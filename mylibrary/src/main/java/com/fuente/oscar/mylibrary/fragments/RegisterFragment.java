@@ -16,9 +16,9 @@ import com.fuente.oscar.mylibrary.R;
  */
 public class RegisterFragment extends Fragment {
     private Button btnVolver,btnRegistrar;
-    private EditText txtEmail,txtPass;
-    private RegisterFragmentEvents registerFragmentEvents;
-    private RegisterFragmentListener registerFragmentListener;
+    public EditText txtEmail,txtPass;
+    public RegisterFragmentEvents registerFragmentEvents;
+    public RegisterFragmentListener registerFragmentListener;
 
 
 
@@ -40,50 +40,6 @@ public class RegisterFragment extends Fragment {
         this.btnVolver.setOnClickListener(registerFragmentEvents);
 
         return viewRegisterFragment;
-    }
-
-    public Button getBtnVolver() {
-        return btnVolver;
-    }
-
-    public void setBtnVolver(Button btnVolver) {
-        this.btnVolver = btnVolver;
-    }
-
-    public Button getBtnRegistrar() {
-        return btnRegistrar;
-    }
-
-    public void setBtnRegistrar(Button btnRegistrar) {
-        this.btnRegistrar = btnRegistrar;
-    }
-
-    public EditText getTxtEmail() {
-        return txtEmail;
-    }
-
-    public void setTxtEmail(EditText txtEmail) {
-        this.txtEmail = txtEmail;
-    }
-
-    public EditText getTxtPass() {
-        return txtPass;
-    }
-
-    public void setTxtPass(EditText txtPass) {
-        this.txtPass = txtPass;
-    }
-
-    public RegisterFragmentEvents getRegisterFragmentEvents() {
-        return registerFragmentEvents;
-    }
-
-    public void setRegisterFragmentEvents(RegisterFragmentEvents registerFragmentEvents) {
-        this.registerFragmentEvents = registerFragmentEvents;
-    }
-
-    public RegisterFragmentListener getRegisterFragmentListener() {
-        return registerFragmentListener;
     }
 
     public void setRegisterFragmentListener(RegisterFragmentListener registerFragmentListener) {
